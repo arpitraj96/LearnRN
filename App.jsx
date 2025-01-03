@@ -1,59 +1,58 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={styles.box3} />
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={styles.box3} />
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={styles.box3} />
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={styles.box3} />
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={styles.box3} />
-    </View>
-  );
-};
+    <ScrollView contentContainerStyle={{gap: 10}} style={styles.container} horizontal>
+      <View style={styles.box1}></View>
+      <View style={styles.box2}></View>
+      <View style={styles.box3}></View>
+      <View style={styles.box1}></View>
+      <View style={styles.box2}></View>
+      <View style={styles.box3}></View>
+      <View style={styles.box1}></View>
+      <View style={styles.box2}></View>
+      <View style={styles.box3}></View>
+      <View style={styles.box1}></View>
+      <View style={styles.box2}></View>
+      <View style={styles.box3}></View>
+      <View style={styles.box1}></View>
+      <View style={styles.box2}></View>
+      <View style={styles.box3}></View>
+      <View style={styles.box1}></View>
+      <View style={styles.box2}></View>
+      <View style={styles.box3}></View>
+      <View style={styles.box1}></View>
+      <View style={styles.box2}></View>
+      <View style={styles.box3}></View>
+    </ScrollView>
+  )
+}
 
-export default App;
+export default App
 
 const styles = StyleSheet.create({
-  container: {
+  container:{
     flex: 1,
-    // flex: 1/2,
-    flexDirection: 'column',
-    backgroundColor: '#6e6e6f',
-    // justifyContent: 'center',
-    // justifyContent: 'space-around',
-    // justifyContent: 'space-between',
-    // justifyContent: 'space-evenly',
-    alignItems: 'center', // It will not work with wrap
-    alignContent: 'center', //This will work with wrap
-    flexWrap: 'wrap',
+    backgroundColor: 'black',
+    padding: 10,
   },
-  box1: {
+  box1:{
     width: 80,
     height: 80,
     backgroundColor: 'red',
+    borderRadius: 50,
   },
-  box2: {
+  box2:{
     width: 80,
     height: 80,
     backgroundColor: 'yellow',
-    // alignSelf: 'flex-end',
-    flexGrow: 1,
+    borderRadius: 50,
   },
-  box3: {
+  box3:{
     width: 80,
     height: 80,
     backgroundColor: 'green',
+    borderRadius: 50,
   },
-});
+})
