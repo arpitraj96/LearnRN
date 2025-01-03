@@ -1,25 +1,59 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <View style={{width: '50%', height: '50%', backgroundColor: 'red'}}>
-        <Text>
-          App
-        </Text>
-      </View>
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
     </View>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: '100%',
+    flex: 1,
+    // flex: 1/2,
+    flexDirection: 'column',
     backgroundColor: '#6e6e6f',
+    // justifyContent: 'center',
+    // justifyContent: 'space-around',
+    // justifyContent: 'space-between',
+    // justifyContent: 'space-evenly',
+    alignItems: 'center', // It will not work with wrap
+    alignContent: 'center', //This will work with wrap
+    flexWrap: 'wrap',
   },
-
-})
+  box1: {
+    width: 80,
+    height: 80,
+    backgroundColor: 'red',
+  },
+  box2: {
+    width: 80,
+    height: 80,
+    backgroundColor: 'yellow',
+    // alignSelf: 'flex-end',
+    flexGrow: 1,
+  },
+  box3: {
+    width: 80,
+    height: 80,
+    backgroundColor: 'green',
+  },
+});
