@@ -1,49 +1,62 @@
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {useState} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import Home from './src/Screens/Home';
+import Profile from './src/Screens/Profile';
+import Search from './src/Screens/Search';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
 
-const App = () => {
-  const [text, setText] = useState('');
-  // console.log("Name", text);
-  const [submittedText, setSubmittedText] = useState('');
+// const Home = () => {
+//   return(
+//     <View>
+//       <Text>Home</Text>
+//     </View>
+//   )
+// }
+const Stack = createNativeStackNavigator();
 
-  const handleSubmit = () => {
-    // console.log("Pressed!!")
-    setSubmittedText(text);
-    setText('');
-  };
+const StackNavigator = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>We'll learn how to handle User Input</Text>
-      <TextInput
-        placeholder="Enter a text here......"
-        style={styles.input}
-        value={text}
-        onChangeText={text => setText(text)}
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerTitleAlign: 'center',
+      }}>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{headerShown: false}}
       />
-      <Button title="Submit" onPress={handleSubmit} />
-      {submittedText ? <Text>Result: {submittedText}</Text> : null}
-    </View>
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          title: 'Profile Screens',
+          headerStyle: {backgroundColor: 'red'},
+        }}
+      />
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
+const App = () => {
+  return (
+    // <View>
+    //   <Text>App</Text>
+    //   <Home />
+    //   {/* <Profile /> */}
+    //   {/* <Search /> */}
+    // </View>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 };
 
 export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    gap: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: '500',
-  },
-  input: {
-    padding: 5,
-    width: '100%',
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-});
+const styles = StyleSheet.create({});
