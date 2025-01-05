@@ -1,9 +1,9 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const Profile = ({navigation, route}) => {
-  // console.log(route);
-  const {id, name} = route.params;
+const Profile = ({navigation}) => {
+  // console.log("The route is: ",route);
+  // const {id, name} = route.params;
   return (
     <View
       style={{
@@ -13,7 +13,7 @@ const Profile = ({navigation, route}) => {
         alignItems: 'center',
       }}>
       <Text style={{fontSize: 20, fontWeight: '500', marginBottom: 10}}>
-        Profile Name - {name}
+        Profile Name - Arpit
       </Text>
       <Button
         title="Search"

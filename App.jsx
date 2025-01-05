@@ -5,6 +5,10 @@ import Profile from './src/Screens/Profile';
 import Search from './src/Screens/Search';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
+import Octicons from 'react-native-vector-icons/Octicons';
 
 // const Home = () => {
 //   return(
@@ -14,6 +18,7 @@ import {NavigationContainer} from '@react-navigation/native';
 //   )
 // }
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const StackNavigator = () => {
   return (
@@ -43,6 +48,22 @@ const StackNavigator = () => {
     </Stack.Navigator>
   );
 };
+
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator screenOptions={{headerShown: false, tabBarActiveTintColor: 'red', tabBarActiveBackgroundColor: 'yellow', tabBarInactiveTintColor: 'blue', tabBarLabelStyle:{fontSize: 12, }, tabBarStyle:{height: 60}}}>
+      <Tab.Screen name="Home" component={Home} options={{tabBarIcon: () => (
+        <Icon name="home" size={30} color="#900" />
+      )}} />
+      <Tab.Screen name="Search" component={Search} options={{tabBarIcon: () => (
+        <Icon name="home" size={30} color="#900" />
+      )}}/>
+      <Tab.Screen name="Profile" component={Profile} options={{tabBarIcon: () => (
+        <Octicons name="search" size={30} color="#900" />
+      )}}/>
+    </Tab.Navigator>
+  );
+}
 const App = () => {
   return (
     // <View>
@@ -52,7 +73,8 @@ const App = () => {
     //   {/* <Search /> */}
     // </View>
     <NavigationContainer>
-      <StackNavigator />
+      {/* <StackNavigator /> */}
+      <TabNavigator />
     </NavigationContainer>
   );
 };
